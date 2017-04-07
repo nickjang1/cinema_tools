@@ -1,0 +1,43 @@
+<nav class="breadcrumb">
+  <span class="breadcrumb-item active">Movie</span>
+</nav>
+
+<% if notice %>
+<p id="notice">
+  <div class="alert alert-info" role="alert">
+    <%= notice %>
+  </div>
+</p>
+<% end %>
+
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Actor</th>
+      <th>Rating</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.genre %></td>
+        <td><%= movie.actor %></td>
+        <td><%= movie.rating %></td>
+        <td nowrap="nowrap" class="text-right">
+          <%= link_to 'Show', movie, class: "btn btn-default" %>
+          <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-info" %>
+          <%= link_to 'Delete', movie, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>

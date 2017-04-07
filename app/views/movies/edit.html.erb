@@ -1,0 +1,8 @@
+<nav class="breadcrumb">
+  <span class="breadcrumb-item active">Editing Movie</span>
+</nav>
+
+<%= render 'form', movie: @movie %>
+
+<%= link_to 'Show', @movie, class: "btn btn-info" %> 
+<%= link_to 'Back', movies_path, class: "btn btn-default" %>
