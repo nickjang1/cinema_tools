@@ -54,22 +54,17 @@ h1.movies-board {
         color: $color-card;
     }
 
-    .actor-wrap {
-        display: inline-block;
-        width: 120px;
-        height: 120px;
-        border: 2px solid #443;
-        font-size: 12px;
-        border-radius: 200px;
-        margin-top: 30px;   
-        .actor {
-            margin-top: 50px;
+    .avatar {
+        img {
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            margin: auto;
+            border: 2px solid #443;
             font-size: 12px;
+            border-radius: 200px;
+            margin-top: 30px;
         }
-    }
-
-    .actor {
-        color: #443;
     }
 
     &:hover, &:focus, &:visited {
@@ -90,8 +85,10 @@ h1.movies-board {
         right: 15px;
         background: $color-card;
         color: white;
-        h2 {
-            margin-top: 50%;
+        padding-top: 20px;
+        .actor {
+            font-size: 18px;
+            margin-top: 20px;
             color: white;
         }
         transition: opacity 0.4s;

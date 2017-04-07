@@ -12,21 +12,22 @@
         <a class="movie-card" href="<%=edit_movie_path(movie) %>">
           <h2><%= movie.title %></h2>
           <div class="genre"><%= movie.genre %></div>
-          <div class="actor-wrap">
-            <div class="actor"><%= movie.actor %></div>  
+          <div class="avatar">
+            <%= image_tag movie.avatar.url %>
           </div>
           <div class="rating">
-            	<% for i in 0..5 %>
+            	<% for i in 1..5 %>
                 <i class="glyphicon  <%=i<=movie.rating ? "glyphicon-star": "glyphicon-star-empty"%>"></i>
               <% end %>
           </div>
           <div class="cover">
-            <h2><%= movie.title %></h2>
+            <% movie.actor.split(',').each do |actor| %>
+              <div class='actor'><%=actor %></div>
+            <% end %>
           </div>
         </a>
       </div>
     <% end %>
   </tbody>
 </div>
-
 
