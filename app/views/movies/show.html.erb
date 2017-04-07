@@ -1,9 +1,9 @@
 <nav class="breadcrumb">
   <span class="breadcrumb-item active">Movie Info</span>
 </nav>
-
-<p id="notice"><%= notice %></p>
-
+<% if notice %>
+<div class="alert alert-success" id="notice" role="alert"><%= notice %></div>
+<% end %>
 <p>
   <strong>Title:</strong><br>
   <%= @movie.title %>
