@@ -1,8 +1,40 @@
-<nav class="breadcrumb">
-  <span class="breadcrumb-item active">Editing Movie</span>
-</nav>
+<%= form_for(@movie) do |f| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:
+      <ul>
+      <% @movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render 'form', movie: @movie %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
 
-<%= link_to 'Show', @movie, class: "btn btn-info" %> 
-<%= link_to 'Back', movies_path, class: "btn btn-default" %>
+  <div class="form-group">
+    <%= f.label :genre %>
+    <%= f.text_field :genre, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :actor %>
+    <%= f.text_field :actor, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rating %>
+    <%= f.number_field :rating, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Update', :class=> "btn btn-primary" %>
+    <%= link_to 'Delete', @movie, method: :delete, class: "btn btn-danger" %>
+    <%= link_to 'Back', movies_path, class: "btn btn-default" %>
+  </div>
+<% end %>
+
+

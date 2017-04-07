@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to @movie, notice: 'Movie was successfully created.'
+      redirect_to movies_url, notice: 'Movie was successfully created.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1
   def update
     if @movie.update(movie_params)
-      redirect_to @movie, notice: 'Movie was successfully updated.'
+      redirect_to movies_url, notice: 'Movie was successfully updated.'
     else
       render :edit
     end

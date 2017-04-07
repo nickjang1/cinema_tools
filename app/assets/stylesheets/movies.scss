@@ -1,3 +1,107 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color-card: #FF6C43;
+$color-back: #623D98;
+$padding-card: 20px;
+$title-font-size: 24px;
+
+h1.movies-board {
+    color: $color-back;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.movies-main {
+    background: $color-back;
+    color: white;
+    padding: 40px;
+    position: relative;
+
+    .btn-add-new {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 36px;
+        height: 36px;
+        margin-top: -18px;
+        margin-left: -18px;
+        border-radius: 100px;
+    }
+    
+    .row {
+        margin-bottom: -30px;
+        margin-top: -30px;
+    }
+}
+
+.movie-card {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+    padding: $padding-card;
+    display: block;
+    background-color: white;
+    h2 {
+        font-size: $title-font-size;
+        color: #443;
+        text-decoration-style: none;
+    }   
+    
+    .genre {
+        color: $color-card;
+    }
+
+    .actor-wrap {
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+        border: 2px solid #443;
+        font-size: 12px;
+        border-radius: 200px;
+        margin-top: 30px;   
+        .actor {
+            margin-top: 50px;
+            font-size: 12px;
+        }
+    }
+
+    .actor {
+        color: #443;
+    }
+
+    &:hover, &:focus, &:visited {
+        text-decoration: none;
+    }
+
+    .rating {
+        margin-top: 15px;
+        color: $color-card;
+    }
+
+    .cover {
+        opacity: 0;
+        position: absolute;
+        top: 30px;
+        bottom: 30px;
+        left: 15px;
+        right: 15px;
+        background: $color-card;
+        color: white;
+        h2 {
+            margin-top: 50%;
+            color: white;
+        }
+        transition: opacity 0.4s;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    &:hover {
+        .cover {
+            opacity: 1;
+        }
+    }
+}

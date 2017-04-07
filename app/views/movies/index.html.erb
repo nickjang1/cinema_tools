@@ -1,41 +1,32 @@
-<nav class="breadcrumb">
-  <span class="breadcrumb-item active">Movie</span>
-</nav>
-
 <% if notice %>
 <div class="alert alert-success" role="alert" id="notice">
   <%= notice %>
 </div>
 <% end %>
 
-<table class="table">
-  <thead class="thead-default">
-    <tr>
-      <th>Title</th>
-      <th>Genre</th>
-      <th>Actor</th>
-      <th>Rating</th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to '+', new_movie_path, class: "btn btn-danger btn-add-new" %>
 
-  <tbody>
+<div class="row">
     <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.genre %></td>
-        <td><%= movie.actor %></td>
-        <td><%= movie.rating %></td>
-        <td nowrap="nowrap" class="text-right">
-          <%= link_to 'Show', movie, class: "btn btn-default" %>
-          <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-info" %>
-          <%= link_to 'Delete', movie, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
+      <div class="col-sm-4">
+        <a class="movie-card" href="<%=edit_movie_path(movie) %>">
+          <h2><%= movie.title %></h2>
+          <div class="genre"><%= movie.genre %></div>
+          <div class="actor-wrap">
+            <div class="actor"><%= movie.actor %></div>  
+          </div>
+          <div class="rating">
+            	<% for i in 0..5 %>
+                <i class="glyphicon  <%=i<=movie.rating ? "glyphicon-star": "glyphicon-star-empty"%>"></i>
+              <% end %>
+          </div>
+          <div class="cover">
+            <h2><%= movie.title %></h2>
+          </div>
+        </a>
+      </div>
     <% end %>
   </tbody>
-</table>
+</div>
 
-<br>
 
-<%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>
