@@ -38,6 +38,7 @@ h1.movies-board {
 }
 
 .movie-card {
+    position: relative;
     margin-bottom: 15px;
     margin-top: 15px;
     text-align: center;
@@ -79,10 +80,10 @@ h1.movies-board {
     .cover {
         opacity: 0;
         position: absolute;
-        top: 15px;
-        bottom: 15px;
-        left: 15px;
-        right: 15px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         background: $color-card;
         color: white;
         padding-top: 20px;
