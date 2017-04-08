@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170407224750) do
 
-  create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "genre"
     t.string   "actor"
-    t.float    "rating",              limit: 24
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.float    "rating"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
